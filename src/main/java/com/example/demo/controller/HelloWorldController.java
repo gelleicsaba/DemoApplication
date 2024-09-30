@@ -42,12 +42,12 @@ public class HelloWorldController {
     @RequestMapping("/async/hello")
     public String helloAsync() {
         try {
-            final Future<String> stringFuture1 = _helloService.asyncFunc1();
-            final Future<String> stringFuture2 = _helloService.asyncFunc2();
-            while (!stringFuture1.isDone() && !stringFuture2.isDone()) {
+            final Future<String> sf1 = _helloService.asyncFunc1();
+            final Future<String> sf2 = _helloService.asyncFunc2();
+            while (!sf1.isDone() && !sf2.isDone()) {
                 Thread.sleep(10);
             }
-            final String message = stringFuture1.get() + " " + stringFuture2.get();
+            final String message = sf1.get() + " " + sf2.get();
             return message;
         } catch (Exception ex) {
             return "";
