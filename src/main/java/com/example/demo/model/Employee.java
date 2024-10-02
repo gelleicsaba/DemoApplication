@@ -13,6 +13,9 @@ public class Employee {
     @Column(name = "nev", nullable = true)
     private String nev;
 
+    @Column(name = "company_id", nullable = true)
+    private long companyId;
+
     public Employee() {}
 
     public Employee(final String nev) {
@@ -35,5 +38,21 @@ public class Employee {
     public void setNev(final String nev) {
         this.nev = nev;
     }
-    
+
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", nev='" + nev + '\'' +
+                ", companyId=" + companyId +
+                '}';
+    }
 }

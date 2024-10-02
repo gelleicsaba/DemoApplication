@@ -2,13 +2,9 @@ package com.example.demo.services;
 
 import com.example.demo.model.Employee;
 import com.example.demo.repository.EmployeeRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +19,6 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
-    @GetMapping("/employees/{id}")
     public ResponseEntity<Employee> getEmployeeById(Long employeeId) throws Exception {
         Employee employee = employeeRepository.findById(employeeId)
                 .orElseThrow(() -> new Exception("Employee not found for this id :: " + employeeId));
